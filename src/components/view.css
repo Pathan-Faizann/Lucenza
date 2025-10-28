@@ -1,0 +1,27 @@
+.des{
+    height: 306px !important;
+    font-size: 24px;
+    margin-right: -10%;
+}
+.pb{
+    height: 100vb;
+    width: 100%;
+}
+.v-con{
+    height: 600px;
+    width: auto;
+}
+.pb img{
+    height: 580px;
+    width: 580px !important;
+    object-fit: contain;
+    border-radius: 25px;
+}
+.add{
+    width: 200px;
+}
+.off{
+    color: rgb(46, 61, 120);
+    /* text-shadow: black 2px 4px 5px; */
+
+} 

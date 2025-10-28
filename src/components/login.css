@@ -1,0 +1,67 @@
+.parent1{
+    height: 120vh;
+     background: url("/bg.jpg");
+     margin-top: -10% !important;
+}
+/* From Uiverse.io by mrhyddenn */ 
+.btn-1 {
+  background: #fff;
+  border: none;
+  padding: 10px 20px;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+  width: 120px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: skew(-21deg);
+}
+.bc{
+  background-color: var(--secon);
+}
+.c{
+  position: absolute;
+  left: 95%;
+  top: 4%;
+   background-color: var(--secon);
+}
+@media (max-width:480px) {
+
+  .parent1{
+    margin-top: -50% !important;
+  }
+  .c{
+    left: 80%;
+  }
+  
+}
+
+
+.btn-1 span {
+  display: inline-block;
+  transform: skew(21deg);
+}
+
+.btn-1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  left: 0;
+  background: #344966; 
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.5s;
+}
+
+.btn-1:hover {
+  color: #fff;
+}
+
+.btn-1:hover::before {
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+

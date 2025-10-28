@@ -1,0 +1,28 @@
+.big{
+    height: 90vh;
+}
+.reg input *{
+    color: black;
+
+}
+.reg{
+    background: url("/bg.jpg");
+}
+.for{
+    border-radius: 25px;
+    padding: 60px;
+}
+.for input{
+    background-color: transparent;
+    color: black !important;
+}
+label,button{
+    font-size: 1.4rem;
+}
+@media (max-width:480px) {
+  .for{
+
+      width: 90% !important;
+  }
+    
+}

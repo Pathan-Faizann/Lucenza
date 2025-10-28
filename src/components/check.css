@@ -1,0 +1,8 @@
+.form-label {
+  color: #344966 !important;
+}
+.form-select:focus,
+.form-control:focus {
+  border-color: #344966 !important;
+  box-shadow: 0 0 0 0.2rem rgba(52, 73, 102, 0.25);
+}

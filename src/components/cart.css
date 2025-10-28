@@ -1,0 +1,36 @@
+
+.cart-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.cart-img:hover {
+  transform: scale(1.05);
+}
+.pa{
+  /* background-color: #1f2937; */
+  height: 100vb;
+}
+
+.qty-input {
+  text-align: center;
+}
+
+.table {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.table-dark {
+  background-color: #1f2937 !important;
+}
+
+.table tbody tr:hover {
+  background-color: #f8f9fa;
+  transition: 0.2s;
+}
+.re{
+    width: 70px;
+}

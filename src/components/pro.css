@@ -1,0 +1,18 @@
+.imgP{
+    object-fit: cover;
+    height: 400px !important;
+    width: 500px;
+    
+    
+}
+.imgP:hover{
+    scale: 1.1;
+    object-fit: contain;
+   transition: 0.6s;
+}
+.conL{
+    background: url("/bg.jpg");
+}
+.card-title{
+    font-size: 29px;
+}
