@@ -21,7 +21,7 @@ const Home2 = () => {
             <div className="single-blog blog-style-one shadow " data-aos="fade-right" data-aos-duration='2000'>
                <div className="blog-image">
                   <a href="javascript:void(0)"
-                     ><img className='img-fluid' src="/made.jpg" alt="Blog"
+                     ><img className='img-fluid' src="/Lucenza/made.jpg" alt="Blog"
                      /></a>
        
                </div>
@@ -45,7 +45,7 @@ Every stitch reflects precision, passion, and perfection.
             <div className="single-blog blog-style-one shadow " data-aos="fade-up" data-aos-duration='2000'>
                <div className="blog-image ">
                   <a href="javascript:void(0)"
-                     ><img className='img-fluid' src="/finall.jpeg" alt="Blog"
+                     ><img className='img-fluid' src="/Lucenza/finall.jpeg" alt="Blog"
                      /></a>
               
                </div>
@@ -68,7 +68,7 @@ Effortless fashion that blends trend with timeless appeal.
             <div className="single-blog blog-style-one shadow" data-aos="fade-left" data-aos-duration='2000'>
                <div className="blog-image bimg">
                   <p
-                     ><img className='img-fluid' src="/Qua.jpg" alt="Blog"
+                     ><img className='img-fluid' src="/Lucenza/Qua.jpg" alt="Blog"
                      /></p>
                 
                </div>

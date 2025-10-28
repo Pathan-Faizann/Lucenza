@@ -14,7 +14,7 @@ const Footer = () => {
                <div className="f-about">
                   <div className="footer-logo">
                      <a href="#">
-                     <img className='img-fluid logo' src="/logo.jpg" alt="Logo" />
+                     <img className='img-fluid logo' src="/Lucenza/logo.jpg" alt="Logo" />
                      </a>
                   </div>
                   <p className="text">

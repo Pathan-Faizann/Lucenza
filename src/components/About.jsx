@@ -21,7 +21,7 @@ const About = () => {
          <div className="col-md-4 col-sm-8">
             <div className="single-about-items animate__animated animate__bounceInUp">
                <div className="items-icon">
-                 <img src="/fit.jpg" className='img-fluid ico-img' alt="" />
+                 <img src="/Lucenza/fit.jpg" className='img-fluid ico-img' alt="" />
                </div>
                <div className="items-content">
                   <h4 className="items-title">Perfect Fit Guarantee </h4>
@@ -35,7 +35,7 @@ const About = () => {
          <div className="col-md-4 col-sm-8">
             <div className="single-about-items animate__animated animate__bounceInUp">
                <div className="items-icon">
-                 <img src="/cust.jpg" className='img-fluid ico-img' alt="" />
+                 <img src="/Lucenza/cust.jpg" className='img-fluid ico-img' alt="" />
                </div>
                <div className="items-content">
                   <h4 className="items-title"> Customer Satisfaction First</h4>
@@ -49,7 +49,7 @@ const About = () => {
          <div className="col-md-4 col-sm-8">
             <div className="single-about-items animate__animated animate__bounceInUp ">
                <div className="items-icon">
-               <img src="/neww.jpg" className='img-fluid ico-img' alt="" />
+               <img src="/Lucenza/neww.jpg" className='img-fluid ico-img' alt="" />
                </div>
                <div className="items-content">
                   <h4 className="items-title">Timeless Style</h4>
