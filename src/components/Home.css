@@ -2,13 +2,7 @@
 body{
     background-color: #f0f4ef;
 }
-.cont{
 
-    width: 100%;
-    margin-bottom: 10%;
-    margin-top: 0% !important;
-    background-size: cover;
-}
 .par{
     height: 40rem;
       background: url("/bg.jpg") repeat ;
@@ -28,9 +22,10 @@ body{
 }
 .anime{
     position: absolute;
-    left: 67.6%;
-    top:7%;
+    left: 68.5%;
+    top:8.6%;
     scale: 0.9;
+    object-fit: cover;
 }
 @media (max-width:480px) {
     .part-2{
