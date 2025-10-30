@@ -129,9 +129,9 @@
 }
 .footer-one .footer-contact ul li {
   display: block;
-  margin-top: 15px;
+  margin-top: 5px;
   position: relative;
-  padding-left: 24px;
+  padding-left: 10px;
   color: var(--dark-3);
 }
 .footer-one .footer-contact ul li:first-child {

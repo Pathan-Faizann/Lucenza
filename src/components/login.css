@@ -21,9 +21,12 @@
 }
 .c{
   position: absolute;
-  left: 95%;
+  left: 93%;
   top: 4%;
    background-color: var(--secon);
+}
+.c:hover{
+  background-color: transparent !important;
 }
 @media (max-width:480px) {
 
@@ -57,6 +60,7 @@
 
 .btn-1:hover {
   color: #fff;
+  border: transparent !important;
 }
 
 .btn-1:hover::before {

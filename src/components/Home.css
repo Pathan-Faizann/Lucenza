@@ -6,15 +6,15 @@ body{
 
     width: 100%;
     margin-bottom: 10%;
-    margin-top: 4% !important;
+    margin-top: 0% !important;
     background-size: cover;
 }
 .par{
-    height: 52rem;
+    height: 40rem;
       background: url("/bg.jpg") repeat ;
 }
 .h2{
-    margin-left: 16rem;
+    margin-left: 6rem;
     font-size: 40px !important;
     background-color: rgb(205, 227, 249);
     padding: 30px;
@@ -28,8 +28,9 @@ body{
 }
 .anime{
     position: absolute;
-    left: 70%;
-    top:15%;
+    left: 67.6%;
+    top:7%;
+    scale: 0.9;
 }
 @media (max-width:480px) {
     .part-2{

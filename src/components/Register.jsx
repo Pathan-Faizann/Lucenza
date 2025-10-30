@@ -1,16 +1,15 @@
 import React from "react";
-import { useEffect } from "react";
 import "./Reg.css";
 import * as yup from "yup";
 import { useFormik } from "formik";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, } from "react-redux";
 import { addUser } from "../redux/slice";
 import { useNavigate } from "react-router-dom";
 import "animate.css"
 
 const Register = () => {
   const dispatch = useDispatch()
-  const userData = useSelector((state)=>state.slice.userDetails)
+  // const userData = useSelector((state)=>state.slice.userDetails)
   const navigate = useNavigate()
  
   
@@ -60,7 +59,7 @@ const Register = () => {
     <div className="reg">
         <button className="btn bc border p-2 m-4" onClick={()=>navigate(-1)}>Back</button>
       <div className="d-flex flex-column big justify-content-center align-items-center  animate__animated animate__jackInTheBox animate__slow">
-        <h1 className="text-dark display-4">Register</h1>
+        <h1 className="text-dark mb-2 display-4">Register</h1>
         <form onSubmit={formik.handleSubmit} className="container mt-5 w-50 shadow for">
           <label className="form-label text-dark" htmlFor="">
             Name

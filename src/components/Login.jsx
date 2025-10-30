@@ -44,7 +44,7 @@ const Login = () => {
   return (
     <>
      <button className="btn border p-2 m-4 bc" onClick={()=>navigate(-1)}>Back</button>
-    <Link className='btn bc c' to="/admin">Admin</Link> 
+    <Link className='btn border bc c' to="/admin">Admin</Link> 
     <div className=' parent1 d-flex flex-column justify-content-center align-items-center '>
       <h1 className='display-4 mb-5'>Login</h1>
     <form className='w-50 shadow p-5 for lF animate__animated animate__jackInTheBox animate__slow' onSubmit={save} action="">
@@ -57,7 +57,7 @@ const Login = () => {
           </label>
           <input type="text" className="form-control" name="password" onChange={change} value={login.password} />
           <div className='d-flex justify-content-center '>
-            <button className='btn-1 mt-5 border'>
+            <button className='btn-1 mt-5 border border-3'>
           <span className=""  type='submit'>Login</span>
 
             </button>

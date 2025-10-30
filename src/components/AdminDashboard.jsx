@@ -3,8 +3,13 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Dashboard = () => {
+
+  function logout(){
+    localStorage.removeItem("admin")
+  }
   return (
     <div className="bg-dark min-vh-100 py-5">
+        <button className="btn border text-white" onClick={logout}>Logout</button>
       <div className="container">
         <h2 className="text-center text-light mb-5 fw-bold">Admin Dashboard</h2>
 

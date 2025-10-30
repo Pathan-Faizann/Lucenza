@@ -7,7 +7,7 @@ const ProtectedRoute = ({children}) => {
 
 if(!isAuth){
     alert("Login first") ;
-    return null; 
+    return <Navigate to="/login" replace />
 }
 return children
 }

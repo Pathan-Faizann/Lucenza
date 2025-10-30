@@ -1,23 +1,32 @@
 .big{
-    height: 90vh;
+    height: 100vb;
+    margin-top: -5%;
+     scale: 0.8;
 }
 .reg input *{
     color: black;
+    
+}
+.reg label{
+    font-size: 24px !important;
 
 }
 .reg{
     background: url("/bg.jpg");
+    height: 140vb;
 }
 .for{
     border-radius: 25px;
-    padding: 60px;
+    padding: 40px;
+   
+    margin-top: 0% !important;
 }
 .for input{
     background-color: transparent;
     color: black !important;
 }
 label,button{
-    font-size: 1.4rem;
+    font-size: 1rem;
 }
 @media (max-width:480px) {
   .for{
