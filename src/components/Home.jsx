@@ -13,16 +13,36 @@ const Home = () => {
   
   return (
     <>
-     <div className='par d-flex justify-content-around align-items-center'>
-      <div className='row justify-content-around align-items-center'>
-        <div className='col-6 animate__animated animate__fadeInLeft animate__slow  '><h2 className='text-dark display-4 text-center h2'>From streets to spotlight, <br /> every stitch we make is built <br /> for those who dare to stand out.</h2></div>
-        <div className='col-6 part-2 animate__animated animate__fadeInRight animate__slow'>
-          <img className='img-fluid img ' src="/Lucenza/Fhero.jpg" alt="" />
-          <img className='img-fluid anime animate__animated animate__fadeInDown animate__slower animate__delay-1s ' src="/Lucenza/aniFin.png" alt="" />
-          </div>
-      </div>
+    <div className="par container">
+  <div className="row align-items-center justify-content-center">
 
- </div>   
+    {/* LEFT TEXT */}
+    <div className="col-12 col-md-6 text-center animate__animated animate__slow animate__fadeInLeft">
+      <h2 className="hero-text">
+        From streets to spotlight, <br />
+        every stitch we make is built <br />
+        for those who dare to stand out.
+      </h2>
+    </div>
+
+    {/* RIGHT IMAGE */}
+    <div className="col-12 col-md-6 position-relative text-center animate__animated animate__slow animate__fadeInRight">
+      <img
+        src="/Lucenza/Fhero.jpg"
+        className="img-fluid main-img"
+        alt=""
+      />
+
+      {/* THIRD IMAGE (Only laptop+) */}
+      <img
+        src="/Lucenza/aniFin.png"
+        className="img-fluid floating-img d-none d-lg-block animate__animated animate__slower animate__fadeInDown"
+        alt=""
+      />
+    </div>
+
+  </div>
+</div>
     
 
       

@@ -1,61 +1,116 @@
-import React, { useState } from 'react'
-import { useSelector,useDispatch } from 'react-redux'
-import "./view.css"
-import { useNavigate } from 'react-router-dom'
-import { addCart} from '../redux/slice'
+import React, { useState } from "react";
+import {  useDispatch } from "react-redux";
+import "./view.css";
+import { useNavigate, useParams } from "react-router-dom";
+import { addCart } from "../redux/slice";
+import { toast } from "react-toastify";
+import { useEffect } from "react";
+import axios from "axios";
 
 const View = () => {
-    const selected = useSelector((state)=>state.slice.selected)
-    const isAuth = localStorage.getItem("auth")
-    const navigate = useNavigate();
-    const dis = useDispatch()
-    const [click,setClick]=useState(false)
-    const j = `Premium stretch denim with a modern fit, designed for all-day comfort and timeless style.`
-    const tsh = "Designed with premium cotton blend for superior comfort, modern fit, and effortless style."
+  const [selected, SetSelected] = useState({});
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const dis = useDispatch();
+  const [click, setClick] = useState(false);
+  const [islog,SetIslog] = useState(false)
 
-    function Carting(item){
-       
-        if (click== false){
-            if(isAuth){
-
-                setClick(true)
-                let Qitem={...item,qty:1}
-                dis(addCart(Qitem))
-                console.log(Qitem)
-            }
-            else{
-                alert("Login First")
-            }
-        }
-        else{
-            navigate("/cart")
-        }
-
+  useEffect(() => {
+    async function getPro() {
+      let res = await axios.get(
+        `http://localhost:3000/lucenzaProducts/product/${id}`,{withCredentials:true}
+      );
+      SetSelected(res.data.data);
+      console.log(res);
     }
-  return (
-    <div className='pb d-flex justify-content-center align-items-center '>
-       
-        <div className='row v-con justify-content-center align-items-center shadow'>
-            <div className='col-4'>
-                <img className='img-fluid' src={selected.image} alt="iMAGE" />
-            </div>
-            <div className='col-4  '>
-                <div className='row des justify-content-around flex-column'>
-                    <p className='fs-2 fw-bold'> {selected.name}</p>
-                    <p className='fs-3'>Price : ₹ {selected.price} &nbsp;&nbsp; <span className='fs-5 off'>15% off </span></p>
-                    <p>Description : {selected.category == "Jeans"? j : selected.category == "Tshirt"?tsh:"Something nice"}</p>
-                    <div className='d-flex justify-content-around align-items-end'>
-                        <button onClick={()=> Carting(selected)} className='btn btn-1 add border'><span>{click==false?"Add to cart":"Add more"}</span></button>
-                        <button onClick={()=>navigate(-1)} className='btn btn-1 border me-5'><span>back </span></button>
-                    </div>
-                </div>
-            </div>
+    getPro();
+    check()
+  }, []);
 
-        </div>
-  
+  async function check() {
+    let result = await axios.get("http://localhost:3000/lucenzaProducts/view",{withCredentials:true})
+    console.log(result);
+    if(result.data.success){
+      SetIslog(true)
+    }
+    
+    
+  }
+
+  function Carting(item) {
+    if (click == false) {
+      if(islog){
+        setClick(true);
+        let Qitem = { ...item, qty: 1 };
+        dis(addCart(Qitem));
+        console.log(Qitem);
+
+      }
+      else{
+        toast.warning("Login First Please!");
+
+      }
       
-    </div>
-  )
-}
+   
+        
+   
+        // alert("Login First")
+        //  navigate("/cart");
+    }
+  }
+  return (
+   <div className="pb container py-4">
+  <div className="row justify-content-center align-items-center product-card shadow-lg rounded-4 p-3 p-md-4">
 
-export default View
+    {/* IMAGE */}
+    <div className="col-12 col-md-5 text-center mb-4 mb-md-0">
+      <img className="img-fluid view-img" src={selected.image} alt="product" />
+    </div>
+
+    {/* DETAILS */}
+    <div className="col-12 col-md-7">
+      <div className="d-flex flex-column h-100 justify-content-between">
+
+        <div>
+          <h2 className="fw-bold mb-3 text-center text-md-start">
+            {selected.name}
+          </h2>
+
+          <h4 className="price mb-2 text-center text-md-start">
+            ₹ {selected.price}
+            <span className="ms-3 fs-6 off">15% OFF</span>
+          </h4>
+
+          <p className="text-muted small mb-4 text-center text-md-start">
+            {selected.desc}
+          </p>
+        </div>
+
+        {/* ACTION BUTTONS */}
+        <div className="d-flex gap-3 justify-content-center justify-content-md-start mt-3">
+          <button
+            onClick={() => Carting(selected)}
+            className="btn btn-dark px-4 py-2 rounded-pill"
+          >
+            {click === false ? "Add to Cart" : "Go to Cart"}
+          </button>
+
+          <button
+            onClick={() => navigate(-1)}
+            className="btn btn-outline-secondary px-4 py-2 rounded-pill"
+          >
+            Back
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+  );
+};
+
+export default View;

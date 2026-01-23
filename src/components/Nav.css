@@ -15,7 +15,7 @@
 }
 
 .m-ul{
-    margin-left: 24rem;
+    margin-left:28rem;
     font-size: 22px;
 }
 li{
@@ -37,7 +37,7 @@ a{
     
 }
 a:hover{
-    background-color: #88b5f0;
+    background-color: #102f57;
    
 
 }
@@ -51,6 +51,11 @@ a:hover{
         width: 100% !important;
         color: white !important;
     
+    }
+    .dr{
+        margin-left: 14%;
+        margin-top: -18% !important;
+        scale: 0.8;
     }
     .nav a{
         width: 5rem !important;

@@ -1,13 +1,34 @@
-import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+// import { useSelector } from 'react-redux'
+import axios from "axios"
+
 
 import { AiFillDelete } from "react-icons/ai";
+
+
+
 const AdminUsers = () => {
-    const users = useSelector((state)=>state.slice.userDetails ||[])
+    // const users = useSelector((state)=>state.slice.userDetails ||[])
+    let [uData,setuData] = useState([])
+   
+
+    let fetchUser = async ()=>{
+      let res = await axios.get("http://localhost:3000/lucenza/getusers")
+      setuData(res.data)
+
+    }
+
+    async function remove(id){
+       await axios.delete(`http://localhost:3000/lucenza/deleteUser/${id}`)
+      fetchUser()
+
+    }
+
     useEffect(() => {
-      console.log(users);
-      
-    }, [])
+      fetchUser()
+  
+ 
+}, [])
     
   return (
     <div className=" bg-dark pa py-5">
@@ -15,7 +36,7 @@ const AdminUsers = () => {
            All Users
          </h2>
    
-         {users.length === 0 ? (
+         {uData.length === 0 ? (
            <p className="text-center text-white fs-5">No Users available</p>
          ) : (
            <div className="table-responsive">
@@ -31,14 +52,14 @@ const AdminUsers = () => {
                  </tr>
                </thead>
                <tbody>
-                 {users.map((item, index) => (
+                 {uData.map((item, index) => (
                    <tr key={index}>
                      <td className="text-center fw-bold">{index + 1}</td>
                      <td>{item.name}</td>
                      <td>{item.email}</td>
                      <td>{item.phone}</td>
                      <td>{item.address}</td>
-                      <td className='text-center dus'><button onClick={()=>dis(remOrder(index))}><AiFillDelete  size={27} /></button></td>
+                      <td className='text-center dus'><button onClick={()=>remove(item._id)}><AiFillDelete  size={27} /></button></td>
                    </tr>
                  ))}
                </tbody>

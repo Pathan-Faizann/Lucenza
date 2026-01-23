@@ -1,12 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const isadmin = localStorage.getItem("admin")
+  const navigate = useNavigate()
 
   function logout(){
     localStorage.removeItem("admin")
+    navigate("/admin")
   }
+
+  useEffect(() => {
+    if(!isadmin){
+      navigate("admin")
+    }
+   
+  }, [isadmin])
+  
   return (
     <div className="bg-dark min-vh-100 py-5">
         <button className="btn border text-white" onClick={logout}>Logout</button>

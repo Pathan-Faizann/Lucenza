@@ -3,9 +3,11 @@ import "./check.css";
 import { useSelector ,useDispatch} from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addOrder } from "../redux/slice";
+import axios from "axios"
 
 const Checkout = () => {
-  const user = useSelector((state) => state.slice.Logged);
+  
+  const [user,SetUser] = useState({})
   const amount = useSelector((state)=>state.slice.totalAm)
   const ord = useSelector((state)=>state.slice.orders)
   const dis = useDispatch()
@@ -18,7 +20,20 @@ const Checkout = () => {
     
     
     
+    
   }, [order,Sorder,ord])
+
+  useEffect(() => {
+    async function getData() {
+      let res = await axios.get(`http://localhost:3000/lucenzaLogin/fetch`,{withCredentials:true})
+      console.log(res);
+      SetUser(res.data)
+    }
+    getData()
+  }, [])
+  
+
+  
   
   const navigate = useNavigate()
   const [payType, setPayType] = useState("cod");
@@ -57,7 +72,7 @@ const Checkout = () => {
               Delivery Address
             </h4>
             <p className="text-muted text-start mb-5 mb-0">
-              {user.address || "A-202, Skyline Apartment, Surat, Gujarat"}
+              {user.address || "nothing"}
             </p>
           </div>
 

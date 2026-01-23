@@ -3,11 +3,13 @@ import "./Reg.css";
 import * as yup from "yup";
 import { useFormik } from "formik";
 import { useDispatch, } from "react-redux";
-import { addUser } from "../redux/slice";
 import { useNavigate } from "react-router-dom";
 import "animate.css"
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Register = () => {
+ 
   const dispatch = useDispatch()
   // const userData = useSelector((state)=>state.slice.userDetails)
   const navigate = useNavigate()
@@ -41,24 +43,36 @@ const Register = () => {
     initialValues: {
       name: "",
       phone: "",
+      address:"",
       email: "",
       username: "",
       password: "",
       confirmPassword: "",
     },
     validationSchema: schema,
-    onSubmit: (values,{resetForm}) => {
-      console.log("Form Submitted:", values);
-      alert("Form submitted successfully!");
-      dispatch(addUser(values))
-      resetForm()
-      navigate("/login")
+    onSubmit: async (values,{resetForm}) => {
+     
+      try {
+        let posting = await axios.post("http://localhost:3000/lucenza/addUser",values)
+        console.log(posting);
+        toast.success("User registered Successfully!")
+        
+        resetForm()
+        navigate("/login")
+        
+      } catch (error) {
+        if(error.response && error.response.status === 409){
+          toast.warning("Username already exist!")
+        } 
+      }
+      }
+      
     },
-  })
+  )
   return (
     <div className="reg">
         <button className="btn bc border p-2 m-4" onClick={()=>navigate(-1)}>Back</button>
-      <div className="d-flex flex-column big justify-content-center align-items-center  animate__animated animate__jackInTheBox animate__slow">
+      <div className="d-flex flex-column big justify-content-center align-items-center  animate__animated animate__fadeInUp animate__slow">
         <h1 className="text-dark mb-2 display-4">Register</h1>
         <form onSubmit={formik.handleSubmit} className="container mt-5 w-50 shadow for">
           <label className="form-label text-dark" htmlFor="">

@@ -3,19 +3,19 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Nav.css"
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
 
 const Navbar = () => {
-  const isAuth = localStorage.getItem("auth") 
+  const isAuth = localStorage.getItem("user") 
   const navigate = useNavigate()
   
   
 
   function handlLogout(){
-    localStorage.removeItem("auth")
+    localStorage.removeItem("user")
     navigate("/login")
   }
   return (
@@ -35,10 +35,9 @@ const Navbar = () => {
         <li className="nav-item">
           <Link className="nav-link" to='/products'>Products</Link>
         </li>
-        {isAuth? <li className="nav-item">
+         <li className="nav-item">
           <Link className="nav-link" to='/cart'>Cart</Link>
-        </li>:null
-        }
+        </li>
        
         <li className="nav-item">
           <Link className="nav-link"to="/about">About us</Link>
@@ -65,7 +64,7 @@ const Navbar = () => {
           <ul className="dropdown-menu dr ">
       
              <li className="nav-item">
-          <a className="nav-link bt" onClick={handlLogout}>Logout</a>
+          <Link className="nav-link bt" onClick={handlLogout}>Logout</Link>
         </li>
           </ul>
         </li>

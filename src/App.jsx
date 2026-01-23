@@ -20,6 +20,7 @@ import AdminOrders from './components/AdminOrders'
 import AdminDashboard from "./components/AdminDashboard"
 import AdminUsers from './components/AdminUsers'
 import AdminProducts from './components/AdminProducts'
+import UpdateProduct from './components/UpdateProduct'
 const App = () => {
   return (
     <>
@@ -31,11 +32,12 @@ const App = () => {
       <Route path='/admin' element={<><Admin/></>} />
       <Route path='/about' element={<><Navbar/><About/><Footer/></>} />
       <Route path='/contact' element={<><Navbar/><Contact/><Footer/></>} />
-      <Route path='/view' element={<ProtectedRoute><View/></ProtectedRoute>} />
+      <Route path='/view/:id' element={<View/>} />
       <Route path='/checkout' element={<ProtectedRoute><Checkout/></ProtectedRoute>} />
       <Route path='/adminorders' element={<AdminProtected><AdminOrders/></AdminProtected>} />  
       <Route path='/adminpanel' element={<AdminProtected><AdminDashboard/></AdminProtected>} />
       <Route path='/adminusers' element={<AdminProtected><AdminUsers/></AdminProtected>} />
+      <Route path='/updatePro' element={<AdminProtected><UpdateProduct/></AdminProtected>} />
       <Route path='/adminProducts' element={<AdminProtected><AdminProducts/></AdminProtected>} />
       <Route path='/cart' element={<> <ProtectedRoute> <Cart/> </ProtectedRoute> </>} />
       <Route path='/addproducts' element={<> <AdminProtected> <AddProducts/> </AdminProtected> </>} />

@@ -34,7 +34,7 @@ const Admin = () => {
         
     <button className="btn border bg-dark text-white p-2 m-4 position-absolute start-0" onClick={()=>navigate(-1)}>Back</button>
       
-<form onSubmit={save} className="form animate__animated animate__jackInTheBox animate__slow">
+<form onSubmit={save} className="form animate__animated animate__fadeInUp animate__slow">
     <p id="heading">Admin Login</p>
     <div className="field mb-4">
     <svg className="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">

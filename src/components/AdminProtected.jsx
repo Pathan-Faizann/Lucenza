@@ -8,7 +8,6 @@ const AdminProtected = ({children}) => {
         alert("Admin access required");
         return <Navigate to="/admin" replace />
     }
-
   return children;
 }
 

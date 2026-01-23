@@ -1,44 +1,35 @@
-import React, { useState } from "react";
-// import { useSelector,useDispatch } from "react-redux";
-// import { addPro } from "../redux/slice";
-import { useNavigate } from "react-router-dom";
-import axios from "axios"
-// import { useSelector } from "react-redux";
-const AddProducts = () => {
-    // const dis = useDispatch()
+import axios from 'axios'
+import React, { useState ,useEffect} from 'react'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+const UpdateProduct = () => {
+    const product = useSelector((state)=>state.slice.toUpdate)
+    const [updated,setupdated] = useState(product)
     const navigate = useNavigate()
-  const [product, setProduct] = useState({
-    name: "",
-    image: "",
-    price: "",
-    category: "",
-    desc:""
-  });
-  // const products = useSelector((state)=>state.slice.products)
-  // const toUpdate = useSelector((state)=>state.slice.toUpdate)
+   
+    useEffect(() => {
+    console.log(updated);
+    
+    }, [])
+    
 
-  const handleChange = (e) => {
-    setProduct({ ...product, [e.target.name]: e.target.value });
-  };
+    function handleChange(e){
+        setupdated({...updated,[e.target.name]:e.target.value})
+        
+    }
+    async function handleSubmit(e){
+        e.preventDefault()
+        console.log(updated);
+        await axios.put(`http://localhost:3000/lucenzaAdmin/updateProducts/${updated._id}`,updated)
+        alert("Product has been updated!")
+        setupdated({})
+        
+    }
 
-  const handleSubmit = async(e) => {
-    e.preventDefault();
-    console.log("New Product Added:", product);
-    alert("Product Added Successfully!");
-    let updatedProducts = {...product,price:Number(product.price)}
-    await axios.post("http://localhost:3000/lucenzaAdmin/addProduct",updatedProducts)
-    // dis(addPro(product))
-    setProduct({
-      name: "",
-      image: "",
-      price: "",
-      category: "",
-      desc:""
-    });
-  };
 
   return (
     <div>
+         <div>
       <button className="btn border bg-dark text-white p-2 m-4 position-absolute start-0" onClick={()=>navigate(-1)}>Back</button>
     <div
       className="container-fluid min-vh-100 d-flex justify-content-center align-items-center"
@@ -47,7 +38,7 @@ const AddProducts = () => {
 
       <div className="col-md-6 col-lg-4 bg-dark text-light rounded shadow-lg p-4">
         <h3 className="text-center mb-4" style={{ color: "#a5c9f8" }}>
-          Add New Product
+           Update Product
         </h3>
 
         <form onSubmit={handleSubmit}>
@@ -58,9 +49,9 @@ const AddProducts = () => {
               type="text"
               className="form-control bg-dark text-light border-secondary"
               name="name"
-              value={product.name}
+              value={updated.name || ""}
               onChange={handleChange}
-              placeholder="Enter product name"
+              placeholder="Enter updated name"
               required
             />
           </div>
@@ -72,7 +63,7 @@ const AddProducts = () => {
               type="text"
               className="form-control bg-dark text-light border-secondary"
               name="image"
-              value={product.image}
+              value={updated.image || ""}
               onChange={handleChange}
               placeholder="Paste image link"
               required
@@ -86,7 +77,7 @@ const AddProducts = () => {
               type="number"
               className="form-control bg-dark text-light border-secondary"
               name="price"
-              value={product.price}
+              value={updated.price || ""}
               onChange={handleChange}
               placeholder="Enter price"
               required
@@ -99,7 +90,7 @@ const AddProducts = () => {
             <select
               className="form-select bg-dark text-light border-secondary"
               name="category"
-              value={product.category}
+              value={updated.category || ""}
               onChange={handleChange}
               required
             >
@@ -117,7 +108,7 @@ const AddProducts = () => {
               type="text"
               className="form-control bg-dark text-light border-secondary"
               name="desc"
-              value={product.desc}
+              value={updated.desc || ""}
               onChange={handleChange}
               placeholder="Description"
               required
@@ -135,14 +126,16 @@ const AddProducts = () => {
                 fontWeight: "600",
               }}
             >
-              Add Product
+              Update 
             </button>
           </div>
         </form>
       </div>
     </div>
     </div>
-  );
-};
+      
+    </div>
+  )
+}
 
-export default AddProducts;
+export default UpdateProduct
